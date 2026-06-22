@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #0b2c6b;
+  --color-primary-dark: #071d47;
+  --color-primary-light: #1a4499;
+  --color-accent: #f97316;
+  --color-accent-dark: #ea6c07;
+  --color-bg: #f4f6fb;
+  --color-white: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-inter);
+}
+
+/* Tailwind v4 Preflight already handles margin/padding/box-sizing reset.
+   DO NOT add bare * { } rules here — they override layered utility classes. */
+
+html {
+  scroll-behavior: smooth;
+  /* Account for sticky TopBar (~36px) + Navbar (~64px) when jumping to sections */
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #f4f6fb;
+  color: #1a1a2e;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #0b2c6b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a4499;
+}
+
+/* Section headings shared style */
+.section-heading {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0b2c6b;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+.section-subheading {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+.accent-bar {
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
