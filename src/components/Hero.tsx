@@ -124,7 +124,7 @@ export default function Hero() {
               </a>
               <button
                 id="hero-quote-btn"
-                onClick={() => handleScroll("contact")}
+                onClick={() => handleScroll("footer")}
                 className="flex items-center gap-2.5 px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/25 hover:border-white/50 text-white font-semibold rounded-full backdrop-blur-sm transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 <MdRequestQuote className="text-lg" />

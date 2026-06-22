@@ -128,7 +128,7 @@ export default function WhyUs() {
             id="whyus-cta-btn"
             onClick={() =>
               document
-                .getElementById("contact")
+                .getElementById("footer")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
             className="relative z-10 px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-200 hover:scale-105 active:scale-95"

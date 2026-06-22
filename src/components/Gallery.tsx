@@ -118,7 +118,7 @@ export default function Gallery() {
             id="gallery-contact-btn"
             onClick={() =>
               document
-                .getElementById("contact")
+                .getElementById("footer")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
             className="px-8 py-3.5 border-2 border-[#0b2c6b] text-[#0b2c6b] font-semibold rounded-full hover:bg-[#0b2c6b] hover:text-white transition-all duration-200 hover:scale-105 active:scale-95"
