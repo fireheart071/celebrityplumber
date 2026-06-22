@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Why Us", href: "#why-us" },
   { label: "Gallery", href: "#gallery" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Other Services", href: "#other-services" },
 ];
 
 export default function Navbar() {
@@ -97,7 +97,7 @@ export default function Navbar() {
               </button>
             ))}
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavClick("#footer")}
               className="ml-3 px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-full shadow-md hover:shadow-orange-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
               id="navbar-cta-btn"
             >
@@ -140,7 +140,7 @@ export default function Navbar() {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick("#contact")}
+                onClick={() => handleNavClick("#footer")}
                 className="mt-2 px-4 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-150"
               >
                 Get a Free Quote

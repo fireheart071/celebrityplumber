@@ -6,7 +6,7 @@ import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
+import OtherServices from "@/components/OtherServices";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <WhyUs />
       <Gallery />
       <Testimonials />
-      <Contact />
+      <OtherServices />
       <Footer />
       <WhatsAppButton />
     </main>

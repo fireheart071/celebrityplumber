@@ -114,7 +114,7 @@ export default function About() {
             <button
               onClick={() =>
                 document
-                  .getElementById("contact")
+                  .getElementById("footer")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               id="about-cta-btn"

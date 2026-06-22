@@ -16,7 +16,7 @@ const navLinks = [
   { label: "Why Us", href: "#why-us" },
   { label: "Gallery", href: "#gallery" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Other Services", href: "#other-services" },
 ];
 
 const services = [
@@ -149,13 +149,15 @@ export default function Footer() {
               <li className="text-slate-400">Mon–Sat: 7:00am – 6:00pm</li>
             </ul>
 
-            <button
+            <a
               id="footer-quote-btn"
-              onClick={() => handleScroll("#contact")}
-              className="mt-6 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233000000000"}?text=Hello%20Celebrity%20Plumber%2C%20I%20would%20like%20to%20make%20an%20inquiry.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-6 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Get a Free Quote
-            </button>
+            </a>
           </div>
         </div>
 
