@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MdPlumbing } from "react-icons/md";
+import Image from "next/image";
 import {
   FaFacebook,
   FaInstagram,
@@ -43,8 +43,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-orange-500 flex items-center justify-center shadow-md">
-                <MdPlumbing className="text-white text-lg" />
+              <div className="relative w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shadow-md">
+                <Image
+                  src="/logo.png"
+                  alt="Celebrity Plumber Logo"
+                  fill
+                  sizes="36px"
+                  className="object-contain"
+                  priority
+                />
               </div>
               <span
                 className="font-bold text-lg"
@@ -166,9 +173,21 @@ export default function Footer() {
           <p>
             &copy; {year} Celebrity Plumber. All rights reserved.
           </p>
-          <p className="text-slate-600 text-xs">
-            Professional Plumbing &amp; Tiling Services
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-slate-600">
+            <span>Professional Plumbing &amp; Tiling Services</span>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <span>
+              Designed by{" "}
+              <a
+                href="https://skytechghana.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-400 text-slate-500 transition-colors font-medium"
+              >
+                Skytech Ghana
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
