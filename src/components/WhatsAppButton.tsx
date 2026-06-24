@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
   const href = `https://wa.me/${number}?text=${message}`;
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-center gap-2">
+    <div className="fixed bottom-10 right-5 z-50 flex flex-col items-center gap-2">
       {/* Tooltip label */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8, y: 4 }}

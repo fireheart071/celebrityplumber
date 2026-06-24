@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import { MdPlumbing } from "react-icons/md";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -57,8 +57,15 @@ export default function Navbar() {
             className="flex items-center gap-2 group focus:outline-none"
             aria-label="Celebrity Plumber Home"
           >
-            <div className="w-9 h-9 rounded-lg bg-orange-500 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
-              <MdPlumbing className="text-white text-lg" />
+            <div className="relative w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+              <Image
+                src="/logo.png"
+                alt="Celebrity Plumber Logo"
+                fill
+                sizes="36px"
+                className="object-contain"
+                priority
+              />
             </div>
             <span
               className={`font-bold text-lg tracking-tight transition-colors duration-300 ${

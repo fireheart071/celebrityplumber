@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MdPlumbing } from "react-icons/md";
+import Image from "next/image";
 import {
   FaFacebook,
   FaInstagram,
@@ -43,8 +43,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-orange-500 flex items-center justify-center shadow-md">
-                <MdPlumbing className="text-white text-lg" />
+              <div className="relative w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shadow-md">
+                <Image
+                  src="/logo.png"
+                  alt="Celebrity Plumber Logo"
+                  fill
+                  sizes="36px"
+                  className="object-contain"
+                  priority
+                />
               </div>
               <span
                 className="font-bold text-lg"
