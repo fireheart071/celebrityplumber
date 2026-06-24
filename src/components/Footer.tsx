@@ -166,9 +166,21 @@ export default function Footer() {
           <p>
             &copy; {year} Celebrity Plumber. All rights reserved.
           </p>
-          <p className="text-slate-600 text-xs">
-            Professional Plumbing &amp; Tiling Services
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-slate-600">
+            <span>Professional Plumbing &amp; Tiling Services</span>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <span>
+              Designed by{" "}
+              <a
+                href="https://skytechghana.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-400 text-slate-500 transition-colors font-medium"
+              >
+                Skytech Ghana
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
