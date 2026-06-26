@@ -1,28 +1,64 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppButton() {
-  const number =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233000000000";
-  const message =
-    "Hello%20Celebrity%20Plumber%2C%20I%20would%20like%20to%20make%20an%20inquiry.";
-  const href = `https://wa.me/${number}?text=${message}`;
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const whatsappNumbers = [
+    { label: "020 017 1258", value: "233200171258" },
+    { label: "050 122 6174", value: "233501226174" },
+  ];
+
+  const message = "Hello Celebrity Plumber, I would like to make an inquiry.";
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <div className="fixed bottom-10 right-5 z-50 flex flex-col items-center gap-2">
-      {/* Tooltip label */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 4 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.4 }}
-        className="bg-white text-[#0b2c6b] text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg border border-slate-100 whitespace-nowrap pointer-events-none"
-      >
-        Chat with us
-      </motion.div>
+    <div ref={containerRef} className="fixed bottom-10 right-5 z-50 flex flex-col items-end gap-3">
+      {/* Selection Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 15, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 15, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-2xl p-4 shadow-2xl border border-slate-100 flex flex-col gap-2 min-w-[200px]"
+          >
+            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider px-2 mb-1">
+              Select WhatsApp Number:
+            </div>
+            {whatsappNumbers.map((num) => (
+              <a
+                key={num.value}
+                href={`https://wa.me/${num.value}?text=${encodeURIComponent(message)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-600 font-semibold transition-all duration-200 text-sm"
+              >
+                <FaWhatsapp className="text-xl text-[#25D366]" />
+                <span>{num.label}</span>
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Pulse ring */}
+      {/* Main floating button */}
       <div className="relative">
         <motion.div
           className="absolute inset-0 rounded-full bg-[#25D366]"
@@ -35,21 +71,16 @@ export default function WhatsAppButton() {
           }}
         />
 
-        {/* Main button */}
-        <motion.a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
           id="whatsapp-floating-btn"
-          aria-label="Contact Celebrity Plumber on WhatsApp"
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          whileHover={{ scale: 1.12 }}
+          aria-label="Toggle WhatsApp Contact Options"
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/40 hover:shadow-[#25D366]/60 transition-shadow duration-200"
+          className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/40 hover:shadow-[#25D366]/60 transition-shadow duration-200 focus:outline-none"
         >
           <FaWhatsapp className="text-3xl sm:text-4xl" />
-        </motion.a>
+        </motion.button>
       </div>
     </div>
   );

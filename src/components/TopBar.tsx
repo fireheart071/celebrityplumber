@@ -15,14 +15,24 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
         {/* Left: Contact Info */}
         <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-          <a
-            href="tel:+233000000000"
-            className="flex items-center gap-1.5 hover:text-orange-400 transition-colors duration-200"
-            aria-label="Call Celebrity Plumber"
-          >
+          <div className="flex items-center gap-1.5">
             <MdPhone className="text-orange-400 text-base shrink-0" />
-            <span className="font-medium">+233 000 000 000</span>
-          </a>
+            <a
+              href="tel:+233200171258"
+              className="hover:text-orange-400 transition-colors duration-200 font-medium"
+              aria-label="Call Celebrity Plumber (primary)"
+            >
+              020 017 1258
+            </a>
+            <span className="text-slate-500">/</span>
+            <a
+              href="tel:+233501226174"
+              className="hover:text-orange-400 transition-colors duration-200 font-medium"
+              aria-label="Call Celebrity Plumber (secondary)"
+            >
+              050 122 6174
+            </a>
+          </div>
           <a
             href="mailto:info@celebrityplumber.com"
             className="flex items-center gap-1.5 hover:text-orange-400 transition-colors duration-200"

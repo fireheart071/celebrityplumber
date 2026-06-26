@@ -115,7 +115,7 @@ export default function Hero() {
               className="flex flex-wrap gap-4 mb-10"
             >
               <a
-                href="tel:+233000000000"
+                href="tel:+233200171258"
                 id="hero-call-btn"
                 className="flex items-center gap-2.5 px-7 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-200 hover:scale-105 active:scale-95"
               >
