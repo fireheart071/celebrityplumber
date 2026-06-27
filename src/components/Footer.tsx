@@ -22,10 +22,10 @@ const navLinks = [
 const services = [
   "Pipe Installation",
   "Leak Detection",
-  "Drain Cleaning",
-  "Floor Tiling",
-  "Wall Tiling",
-  "Bathroom Tiling",
+  "Wall & Floor Tiling",
+  "Swimming Pool Renovation",
+  "Bio Digester Installation",
+  "Bio Digester Renovation",
 ];
 
 export default function Footer() {

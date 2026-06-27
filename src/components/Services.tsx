@@ -15,6 +15,9 @@ import {
   FaUtensils,
   FaLayerGroup,
   FaPaintRoller,
+  FaSwimmingPool,
+  FaRecycle,
+  FaWater,
 } from "react-icons/fa";
 import { GiWaterTank } from "react-icons/gi";
 import { MdPlumbing, MdOutlineWaterDrop } from "react-icons/md";
@@ -85,6 +88,29 @@ const tilingServices = [
   },
 ];
 
+const specialistServices = [
+  {
+    icon: FaSwimmingPool,
+    title: "Swimming Pool Construction",
+    desc: "Expert design, structural engineering, plumbing, and installation of modern concrete swimming pools.",
+  },
+  {
+    icon: FaWater,
+    title: "Swimming Pool Renovation",
+    desc: "Refurbishing old pools, leak repairs, re-tiling, pool coping, and modern filtration system upgrades.",
+  },
+  {
+    icon: FaRecycle,
+    title: "Bio Digester Installation",
+    desc: "Construction of eco-friendly, modern bio-digester toilet systems for sustainable waste management.",
+  },
+  {
+    icon: FaTools,
+    title: "Bio Digester Renovation",
+    desc: "Restoring filled or broken digester tanks, desilting, leak fixes, and structural upgrades.",
+  },
+];
+
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -116,6 +142,8 @@ function ServiceCard({
         className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 ${
           accent === "orange"
             ? "bg-orange-50 text-orange-500"
+            : accent === "green"
+            ? "bg-green-50 text-green-600"
             : "bg-blue-50 text-[#0b2c6b]"
         }`}
       >
@@ -209,7 +237,7 @@ export default function Services() {
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12"
           >
             {tilingServices.map((service, i) => (
               <ServiceCard
@@ -217,6 +245,39 @@ export default function Services() {
                 service={service}
                 index={i + 6}
                 accent="blue"
+              />
+            ))}
+          </motion.div>
+
+          {/* Specialist Services */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center shadow-md">
+              <FaSwimmingPool className="text-white text-lg" />
+            </div>
+            <h3
+              className="text-xl font-bold text-[#0b2c6b]"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Specialist Services
+            </h3>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {specialistServices.map((service, i) => (
+              <ServiceCard
+                key={service.title}
+                service={service}
+                index={i + 12}
+                accent="green"
               />
             ))}
           </motion.div>
